@@ -23,10 +23,184 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+
 
 public class MainActivity extends AppCompatActivity {
-    static Calendar date;
-    static Button dateButton;
+    private static final LOCATIONBUTTONS = 0;
+    private static final CALCULATEBUTTONS = 1;
+    private static final LOADINGBUTTONSLOCATION = 2;
+    private static final LOADINGBUTTONSCALCULATE = 3;
+    private static final NORMAL = 4;
+    private static final ERRORRECHECK = 5;
+
+
+    private static Calendar date;
+    private static Button dateButton;
+
+    private Document doc;
+    private boolean locationUpdated = false;
+    private boolean calculationUpdated = false;
+    private boolean isOffline = true;
+
+    ExecutorService locationAndCalculateThreads = Executors.newFixedThreadPool(1);
+
+    public void startup() {
+        try{
+
+            findLocation(true);
+            calculate(true);
+            setButtons(NORMAL);
+        }catch (Exception e){e.printStackTrace(); errorRecovery()}
+    }
+
+    public synchronized void findLocation(boolean isStartup) throws InterruptedException
+    {
+        boolean option = null;
+        setButtons(LOCATIONBUTTONS);
+        if(option == null)
+        {
+            locationAndCalculateThreads.execute(new GpsThread());
+        }
+        else
+        {
+            if(option)
+            {
+                locationAndCalculateThreads.execute(new CityToLatitude());
+            }
+            else
+            {
+                locationAndCalculateThreads.execute(new OperateSQLForPrevLocations());
+            }
+        }
+
+        setButtons(LOADINGBUTTONSLOCATION);
+
+        //Waits until the thread comes back (MUST RELINQUISH KEY) or it times out by waiting for around one-two minute.
+        //If waits too long, throw timeout exception
+        long time = System.currentTimeMillis();
+        while(!locationUpdated && 60000 > System.currentTimeMillis() - time)
+        {
+            wait();
+        }
+        if(60000 <= System.currentTimeMillis() - time)
+            throw new InterruptedException("The Credentials could not be found within a minute");
+        else
+            locationUpdated false;
+
+
+    }
+
+    public synchronized void calculate(isStartup) throws InterruptedException
+    {
+        setButtons(LOADINGBUTTONSCALCULATE);
+        if(isOffline)
+        {
+            locationAndCalculateThreads.execute(new CalculateOffline());
+        }
+        else
+        {
+            locationAndCalculateThreads.execute(new CalculateOnline());
+        }
+        //awahile until times out or returns (MUST RELINQUISH KEY), and throws exception if times out
+        long time = System.currentTimeMillis();
+        while(!calculationUpdated && 60000 > System.currentTimeMillis() - time)
+        {
+            wait();
+        }
+        if(60000 <= System.currentTimeMillis() - time)
+            throw new InterruptedException("The Credentials could not be found within a minute");
+        else
+            calculationUpdated = false;
+    }
+
+    public void changeLocation()
+    {
+        try{
+            findLocation(false);
+            calculate(false);
+            setButtons(NORMAL);
+        }catch(Exception e){e.printStackTrace();}
+    }
+    public void changeCalculation()
+    {
+        try{
+            calculate(false);
+            setButtons(NORMAL);
+        }catch(Exception e){e.printStackTrace();}
+    }
+
+    public void updateGUI()
+    {
+        //updates the gui with all of the information gathered
+    }
+    public void errorRecovery()
+    {
+        //tries to determine what went wrong and tries to re-setup the connection stuff
+    }
+    private void setButtons(int typeOfChange)
+    {
+        //All necessary change in buttons
+    }
+    public synchronized void setDocument(Document doc, boolean isLocation)
+    {
+        this.doc = doc;
+        if (isLocation)
+        {
+            locationUpdated = true;
+        }
+        else
+        {
+            calculationUpdated = true;
+        }
+        notifyAll();
+    }
+    public synchronized float getDocument()
+    {
+        return doc;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
