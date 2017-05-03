@@ -116,4 +116,5 @@
         <item>WI</item>
         <item>WY</item>
     </string-array>
+    <string name="title_activity_location_selector">Select a Location</string>
 </resources>

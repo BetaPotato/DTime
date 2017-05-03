@@ -5,4 +5,8 @@ package com.example.wesley.dtime;
  */
 
 public class OperateSQLForPrevLocations implements Runnable {
+    @Override
+    public void run() {
+
+    }
 }

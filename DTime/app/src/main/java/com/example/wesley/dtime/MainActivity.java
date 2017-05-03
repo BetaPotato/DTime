@@ -2,6 +2,7 @@ package com.example.wesley.dtime;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
@@ -23,17 +24,17 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 public class MainActivity extends AppCompatActivity {
-    private static final LOCATIONBUTTONS = 0;
-    private static final CALCULATEBUTTONS = 1;
-    private static final LOADINGBUTTONSLOCATION = 2;
-    private static final LOADINGBUTTONSCALCULATE = 3;
-    private static final NORMAL = 4;
-    private static final ERRORRECHECK = 5;
+    private static final int LOCATIONBUTTONS = 0;
+    private static final int CALCULATEBUTTONS = 1;
+    private static final int LOADINGBUTTONSLOCATION = 2;
+    private static final int LOADINGBUTTONSCALCULATE = 3;
+    private static final int NORMAL = 4;
+    private static final int ERRORRECHECK = 5;
 
 
     private static Calendar date;
@@ -52,14 +53,14 @@ public class MainActivity extends AppCompatActivity {
             findLocation(true);
             calculate(true);
             setButtons(NORMAL);
-        }catch (Exception e){e.printStackTrace(); errorRecovery()}
+        }catch (Exception e){e.printStackTrace(); errorRecovery();}
     }
 
     public synchronized void findLocation(boolean isStartup) throws InterruptedException
     {
-        boolean option = null;
+        boolean option = false; // FIXME: 5/3/17
         setButtons(LOCATIONBUTTONS);
-        if(option == null)
+        if(option == false)
         {
             locationAndCalculateThreads.execute(new GpsThread());
         }
@@ -87,12 +88,12 @@ public class MainActivity extends AppCompatActivity {
         if(60000 <= System.currentTimeMillis() - time)
             throw new InterruptedException("The Credentials could not be found within a minute");
         else
-            locationUpdated false;
+            locationUpdated = false;
 
 
     }
 
-    public synchronized void calculate(isStartup) throws InterruptedException
+    public synchronized void calculate(boolean isStartup) throws InterruptedException
     {
         setButtons(LOADINGBUTTONSCALCULATE);
         if(isOffline)
@@ -156,51 +157,14 @@ public class MainActivity extends AppCompatActivity {
         }
         notifyAll();
     }
-    public synchronized float getDocument()
+    public synchronized Document getDocument()
     {
         return doc;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -210,6 +174,9 @@ public class MainActivity extends AppCompatActivity {
         date = new GregorianCalendar();
         date.setTime(new Date());
         dateButton.setText(new SimpleDateFormat("MM/dd/yyyy").format(date.getTime()));
+        Intent intent = new Intent(this, LocationSelectorActivity.class);
+        startActivity(intent);
+        System.out.println("I'm a survivor"); //For testing porpoises only
     }
 
     public void find(View v) throws Exception {

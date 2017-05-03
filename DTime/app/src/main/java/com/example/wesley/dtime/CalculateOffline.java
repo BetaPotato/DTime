@@ -6,4 +6,8 @@ package com.example.wesley.dtime;
 
 public class CalculateOffline implements Runnable {
 
+    @Override
+    public void run() {
+
+    }
 }
