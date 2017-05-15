@@ -1,8 +1,8 @@
 package com.example.wesley.dtime;
 
+import android.location.Address;
+import android.location.Geocoder;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -12,12 +12,15 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
 
-import android.widget.TextView;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Locale;
 
 public class LocationSelectorActivity extends AppCompatActivity {
 
@@ -53,7 +56,6 @@ public class LocationSelectorActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
     }
 
     /**
@@ -128,5 +130,18 @@ public class LocationSelectorActivity extends AppCompatActivity {
             }
             return null;
         }
+    }
+
+    public void searchAddress(View v) throws IOException {
+        Geocoder geocoder = new Geocoder(this, Locale.US);
+        ArrayList<Address> listOfAddress;
+        listOfAddress = (ArrayList)geocoder.getFromLocationName(((EditText)findViewById(R.id.container).findViewById(R.id.address_EditText)).getText().toString(), 10);
+        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1); //(ArrayAdapter)((Spinner)findViewById(R.id.container).findViewById(R.id.addressSelect_Spinner)).getAdapter();
+        adapter.add("Select Address");
+        for (Address a : listOfAddress) {
+            adapter.add(a.toString());
+            System.out.println("found one"); //Only returns like one from each state??
+        }
+        ((Spinner)findViewById(R.id.container).findViewById(R.id.addressSelect_Spinner)).setAdapter(adapter);
     }
 }

@@ -3,165 +3,30 @@
 
     <item
         is-multidex="true"
-        jar="/home/wesley/Android/Sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
-        <dex dex="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/DTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.2_c15ddedb93ca0764039c2af71c71577fc0a19c1a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wesley/.android/build-cache/d9b15c45bc59adf59e1f30d633cc085461ea3944/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
-        <dex dex="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/DTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_130b51c1ea22c64be62d33a3e090e9b6aa348617/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wesley/.android/build-cache/42f69f9b1e5cb66ef5219231d804c18806061806/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
-        <dex dex="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/DTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0d3bf37d125ab1d34c0a8f228937d7d937f9ff0a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wesley/.android/build-cache/61eaf8d91f83df207a2948bff43daee55b46ca76/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
-        <dex dex="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/DTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_be56a490fe868885deffe8cd6c4dd4f6115eaa95/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wesley/.android/build-cache/847f170a6013246eb98ed886d3704d0bd6a00f40/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
-        <dex dex="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/DTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_7f785af6bf75dd06371ef543f2143c8588e9e2aa/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wesley/.android/build-cache/a40b4023dd6ed8bde4c6e7bad81fcafe796517ba/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
-        <dex dex="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/DTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9abcc1c11411f7998dba1a1c81167c696fa6d68a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wesley/.android/build-cache/d74b0e98a127a4755319852ff5a06a74e7be16e0/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
-        <dex dex="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/DTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ba7b8a6fa8f4f3c19c360ba826be865d573238be/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/DTime/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="55d4e27907f6377f361cc06a0bdfe4b437dc1652">
-        <dex dex="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/DTime/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_da231dd32d07d93c605efbd7a6486adacfad1b22/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wesley/.android/build-cache/3b11b51b20c85a7db444a34192389045fc87c52b/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
-        <dex dex="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/DTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_74f6b9215d0139cec16ac677bb456dff11f94642/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wesley/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
-        <dex dex="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/DTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.3.1_008e74691dc2e475be65094317b40ac13587a5d2/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wesley/.android/build-cache/4da1210dab9b6ab404e4aacb0288dcaec4fe404c/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
-        <dex dex="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/DTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_bc1796b00fa01eff57f1c9af7ec6f116cedc3b21/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wesley/.android/build-cache/7182c852f072e3b2475cf3af0f716ceb06729e77/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
-        <dex dex="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/DTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_62ff1b690db43e938b02ee7de88dae0fc3cdeef5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wesley/.android/build-cache/9b782fc953e7dce7dadfd79b6ee965ad86fd32dd/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
-        <dex dex="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/DTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_06e233a186aeb5dd1f957dbd301fe94c0e4c4d8a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wesley/.android/build-cache/b25dbcf8539352c134c5e4a64dc1174c4fd9dd55/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="95519720620b553f63afc789beba9ad582807f7c">
-        <dex dex="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/DTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0ab86350a6d468b7f56f321dda233b9f82a64ad8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wesley/.android/build-cache/b2c77aac8431ef6d840ac7e8ccf27c24424205ff/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
-        <dex dex="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/DTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_07ff62fd3338b41fe418a4065807615c2ada9311/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/DTime/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
-        <dex dex="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/DTime/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_cc5de58f11612288308dc7512a91999be133a601/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wesley/.android/build-cache/94effae4a199afae0dab8d3e99f91a1576864be8/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/DTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_d06db55c3c5f3036dc744f0bcc662f865461b690/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/DTime/app/jsoup-1.10.2.jar"
+        jar="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/app/jsoup-1.10.2.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="61f84a97f1a4f5905547b8b74afff8dc93f4cfce">
-        <dex dex="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/DTime/app/build/intermediates/transforms/dex/debug/folders/1000/2/jsoup-1.10.2_eb684005c302d1c4532c2717af9914744caf5f27/classes.dex" />
+        <dex dex="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/app/build/intermediates/transforms/dex/debug/folders/1000/2/jsoup-1.10.2_b0d8f568d78c97848f2e8ceb31da571958526ab9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6d3ead8e102cbe30718432ee058ebcd2d86406df">
+        <dex dex="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_ba010575f2ff3ac9bc253a30cf49b5b2e5abec23/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        <dex dex="/home/wesley/Documents/School/2016-2017/Mobile App Development/Android/cautious-giggle/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_44f232dd73628adba2d1bba317f3bf52148ebf72/classes.dex" />
     </item>
 
 </items>
