@@ -35,12 +35,11 @@ public class MainActivity extends AppCompatActivity {
     private static final int LOADINGBUTTONSCALCULATE = 3;
     private static final int NORMAL = 4;
     private static final int ERRORRECHECK = 5;
-
+    private static final int other = 0;
 
     private static Calendar date;
     private static Button dateButton;
-
-    private Document doc;
+    private String doc;
     private boolean locationUpdated = false;
     private boolean calculationUpdated = false;
     private boolean isOffline = true;
@@ -58,21 +57,23 @@ public class MainActivity extends AppCompatActivity {
 
     public synchronized void findLocation(boolean isStartup) throws InterruptedException
     {
-        boolean option = false; // FIXME: 5/3/17
+        int option = 0; // FIXME: 5/3/17
         setButtons(LOCATIONBUTTONS);
-        if(option == false)
+
+        //WARNING: NEEDS TO ADD IN SOMETHING THAT WAITS UNTIL NOTIFIED THAT OPTION IS SELECTED
+        if(option == 2)
         {
             locationAndCalculateThreads.execute(new GpsThread());
         }
         else
         {
-            if(option)
+            if(option == 1)
             {
                 locationAndCalculateThreads.execute(new CityToLatitude());
             }
             else
             {
-                locationAndCalculateThreads.execute(new OperateSQLForPrevLocations());
+                locationAndCalculateThreads.execute(new OperateSQLForPrevLocations(this));
             }
         }
 
@@ -144,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
     {
         //All necessary change in buttons
     }
-    public synchronized void setDocument(Document doc, boolean isLocation)
+    public synchronized void setDocument(String doc, boolean isLocation)
     {
         this.doc = doc;
         if (isLocation)
@@ -157,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
         }
         notifyAll();
     }
-    public synchronized Document getDocument()
+    public synchronized String getDocument()
     {
         return doc;
     }
