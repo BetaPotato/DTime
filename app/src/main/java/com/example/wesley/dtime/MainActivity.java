@@ -177,7 +177,6 @@ public class MainActivity extends AppCompatActivity {
         dateButton.setText(new SimpleDateFormat("MM/dd/yyyy").format(date.getTime()));
         Intent intent = new Intent(this, LocationSelectorActivity.class);
         startActivity(intent);
-        System.out.println("I'm a survivor"); //For testing porpoises only
     }
 
     public void find(View v) throws Exception {
