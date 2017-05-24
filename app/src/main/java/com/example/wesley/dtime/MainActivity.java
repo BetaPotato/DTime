@@ -92,6 +92,10 @@ public class MainActivity extends AppCompatActivity {
             locationUpdated = false;
 
 
+        String address = "";
+        String coordinates = "";
+        new Thread(new OperateSQLForPrevLocations(this, address, coordinates)).start();
+
     }
 
     public synchronized void calculate(boolean isStartup) throws InterruptedException

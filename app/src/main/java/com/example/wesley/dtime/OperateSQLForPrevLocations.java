@@ -28,7 +28,7 @@ public class OperateSQLForPrevLocations extends SQLiteOpenHelper implements Runn
                 //This entirely depends upon how the address will be chosen and then
                 List<Integer> me = getAllIDs();
                 Integer spot = me.get(me.size() - 1);
-
+                
             }catch(Exception e){e.printStackTrace(); }
 
         }
