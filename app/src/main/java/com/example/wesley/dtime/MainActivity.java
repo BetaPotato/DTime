@@ -31,7 +31,9 @@ import java.util.concurrent.Executors;
 public class MainActivity extends AppCompatActivity {
     private static final int LOCATIONBUTTONS = 0;
     private static final int CALCULATEBUTTONS = 1;
+    private static final int CALENDARBUTTONS = 7;
     private static final int LOADINGBUTTONSLOCATION = 2;
+    private static final int LOADINGBUTTONSCALENDAR = 6;
     private static final int LOADINGBUTTONSCALCULATE = 3;
     private static final int NORMAL = 4;
     private static final int ERRORRECHECK = 5;
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         try{
 
             findLocation(true);
+            findDate(true);
             calculate(true);
             setButtons(NORMAL);
         }catch (Exception e){e.printStackTrace(); errorRecovery();}
@@ -121,6 +124,11 @@ public class MainActivity extends AppCompatActivity {
             calculationUpdated = false;
     }
 
+    public void findDate(boolean isStart)
+    {
+
+    }
+
     public void changeLocation()
     {
         try{
@@ -167,6 +175,10 @@ public class MainActivity extends AppCompatActivity {
         return doc;
     }
 
+    public synchronized void notifyFinished()
+    {
+        notifyAll();
+    }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

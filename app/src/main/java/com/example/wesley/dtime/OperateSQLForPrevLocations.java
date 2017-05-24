@@ -27,6 +27,7 @@ public class OperateSQLForPrevLocations extends SQLiteOpenHelper implements Runn
                     List<Integer> me = getAllIDs();
                     Integer spot = me.get(me.size() - 1);
                     mainActivity.setDocument(getAddress(spot) + "%" + getCoordinates(spot), true);     //address%coordinates
+                    mainActivity.notifyFinished();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
