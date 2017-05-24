@@ -86,12 +86,13 @@ public class LocationSelectorActivity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View view = inflater.inflate(
-                    (getArguments().getInt(ARG_SECTION_NUMBER) == 1) ? R.layout.address_location_selector_tab :
-                            (getArguments().getInt(ARG_SECTION_NUMBER) == 2) ? R.layout.gps_location_selector_tab :
-                                    (getArguments().getInt(ARG_SECTION_NUMBER) == 3) ? R.layout.map_location_selector_tab : null,
+            return inflater.inflate(
+                    (getArguments().getInt(ARG_SECTION_NUMBER) == 1) ? R.layout.previous_location_selector_tab :
+                            (getArguments().getInt(ARG_SECTION_NUMBER) == 2) ? R.layout.address_location_selector_tab :
+                                    (getArguments().getInt(ARG_SECTION_NUMBER) == 3) ? R.layout.gps_location_selector_tab :
+                                            (getArguments().getInt(ARG_SECTION_NUMBER) == 4) ? R.layout.map_location_selector_tab :
+                    R.layout.activity_location_selector,
                     container, false);
-            return view;
         }
     }
 
@@ -99,9 +100,9 @@ public class LocationSelectorActivity extends AppCompatActivity {
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+    private class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        public SectionsPagerAdapter(FragmentManager fm) {
+        SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
@@ -115,17 +116,19 @@ public class LocationSelectorActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 3;
+            return 4;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "By Address";
+                    return "By History";
                 case 1:
-                    return "By GPS or Coordinates";
+                    return "By Address";
                 case 2:
+                    return "By GPS or Coordinates";
+                case 3:
                     return "By Map";
             }
             return null;
@@ -135,12 +138,16 @@ public class LocationSelectorActivity extends AppCompatActivity {
     public void searchAddress(View v) throws IOException {
         Geocoder geocoder = new Geocoder(this, Locale.US);
         ArrayList<Address> listOfAddress;
-        listOfAddress = (ArrayList)geocoder.getFromLocationName(((EditText)findViewById(R.id.container).findViewById(R.id.address_EditText)).getText().toString(), 10);
-        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1); //(ArrayAdapter)((Spinner)findViewById(R.id.container).findViewById(R.id.addressSelect_Spinner)).getAdapter();
-        adapter.add("Select Address");
-        for (Address a : listOfAddress) {
-            adapter.add(a.toString());
-            System.out.println("found one"); //Only returns like one from each state??
+        listOfAddress = (ArrayList<Address>)geocoder.getFromLocationName(((EditText)findViewById(R.id.container).findViewById(R.id.address_EditText)).getText().toString(), 20);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1); //(ArrayAdapter)((Spinner)findViewById(R.id.container).findViewById(R.id.addressSelect_Spinner)).getAdapter();
+        if (listOfAddress.size() > 0) {
+            if (listOfAddress.size() > 1) adapter.add("Select City");
+            for (Address a : listOfAddress) {
+                adapter.add(a.getLocality() + ", " + (a.getCountryName().equals("United States") ? a.getAdminArea() + ": " : "") + a.getCountryName());
+            }
+        }
+        else {
+            adapter.add("No Cities Found");
         }
         ((Spinner)findViewById(R.id.container).findViewById(R.id.addressSelect_Spinner)).setAdapter(adapter);
     }
