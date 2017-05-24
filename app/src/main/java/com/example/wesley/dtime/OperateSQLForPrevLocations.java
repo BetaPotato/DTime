@@ -24,9 +24,16 @@ public class OperateSQLForPrevLocations extends SQLiteOpenHelper implements Runn
         }
         else
         {
-            //This entirely depends upon how the address will be chosen and then
+            try {
+                //This entirely depends upon how the address will be chosen and then
+                List<Integer> me = getAllIDs();
+                Integer spot = me.get(me.size() - 1);
+
+            }catch(Exception e){e.printStackTrace(); }
+
         }
     }
+
 
     //Database Version
     private static final int DATABASE_VERSION = 2;
@@ -45,18 +52,21 @@ public class OperateSQLForPrevLocations extends SQLiteOpenHelper implements Runn
     private boolean isUpdate = true;
     private String address = "";
     private String coordinates = "";
+    private MainActivity mainActivity;
 
-    public OperateSQLForPrevLocations(Context context) {
+    public OperateSQLForPrevLocations(MainActivity context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         //For option, pick 0 for updating table and 1 for taking item from table
         isUpdate = false;
+        mainActivity = context;
     }
-    public OperateSQLForPrevLocations(Context context, String address, String coordinates) {
+    public OperateSQLForPrevLocations(MainActivity context, String address, String coordinates) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         //For option, pick 0 for updating table and 1 for taking item from table
         this.address = address;
         this.coordinates = coordinates;
         isUpdate = true;
+        mainActivity = context;
     }
 
     @Override
@@ -194,6 +204,34 @@ public class OperateSQLForPrevLocations extends SQLiteOpenHelper implements Runn
 
                 //Add contact to the ArrayLIst
                 contactList.add(cursor.getString(1));
+            } while (cursor.moveToNext());
+        }
+        db.close();
+        cursor.close();
+        return contactList;
+    }
+
+    public List<Integer> getAllIDs()
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<Integer> contactList = new ArrayList<Integer>();
+
+        String selectQuery = "SELECT * FROM "  + TABLE_CONTACTS;
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        //loop through cursor, build contact, and add to the arrayList
+
+        if (cursor.moveToFirst())
+        {
+            do {
+                //Contact contact = new Contact();
+                //contact.set_id(Integer.parseInt(cursor.getString(0)));
+                //contact.set_name(cursor.getString(1));
+                //contact.set_phone_number(cursor.getString(2));
+
+                //Add contact to the ArrayLIst
+                contactList.add(Integer.parseInt(cursor.getString(0)));
             } while (cursor.moveToNext());
         }
         db.close();
